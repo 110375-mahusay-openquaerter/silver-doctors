@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        
+   		 <link href="style.css" rel="stylesheet" type="text/css" />
+       <!--[if IE]>
+       		<link href="css/ie.css" rel="stylesheet" type="text/css" />
+       <![endif]-->
+       
+           	<script type="text/javascript" src="scripts/jquery-1.3.2.min.js"></script>
+			<script type="text/javascript" src="scripts/jquery-ui-1.7.2.custom.min.js"></script>
+            <link rel="Stylesheet" type="text/css" href="style/jqueryui/ui-lightness/jquery-ui-1.7.2.custom.css" />
+        
+            <script type="text/javascript" src="scripts/jHtmlArea-0.7.0.js"></script>
+            <link rel="Stylesheet" type="text/css" href="style/jHtmlArea.css" />
+            
+            <style type="text/css">
+                /* body { background: #ccc;} */
+                div.jHtmlArea .ToolBar ul li a.custom_disk_button 
+                {
+                    background: url(images/disk.png) no-repeat;
+                    background-position: 0 0;
+                }
+                
+    		</style>
+                <script type="text/javascript">    
+					// You can do this to perform a global override of any of the "default" options
+					// jHtmlArea.fn.defaultOptions.css = "jHtmlArea.Editor.css";
+			
+					$(function() {
+						//$("textarea").htmlarea(); // Initialize all TextArea's as jHtmlArea's with default values
+			
+						$("#txtDefaultHtmlArea").htmlarea(); // Initialize jHtmlArea's with all default values
+			
+						$("#txtCustomHtmlArea").htmlarea({
+							// Override/Specify the Toolbar buttons to show
+							toolbar: [
+								["bold", "italic", "underline", "|", "forecolor"],
+								["p", "h1", "h2", "h3", "h4", "h5", "h6"],
+								["link", "unlink", "|", "image"],                    
+								[{
+									// This is how to add a completely custom Toolbar Button
+									css: "custom_disk_button",
+									text: "Save",
+									action: function(btn) {
+										// 'this' = jHtmlArea object
+										// 'btn' = jQuery object that represents the <A> "anchor" tag for the Toolbar Button
+										alert('SAVE!\n\n' + this.toHtmlString());
+									}
+								}]
+							],
+			
+							// Override any of the toolbarText values - these are the Alt Text / Tooltips shown
+							// when the user hovers the mouse over the Toolbar Buttons
+							// Here are a couple translated to German, thanks to Google Translate.
+							toolbarText: $.extend({}, jHtmlArea.defaultOptions.toolbarText, {
+									"bold": "fett",
+									"italic": "kursiv",
+									"underline": "unterstreichen"
+								}),
+			
+							// Specify a specific CSS file to use for the Editor
+							css: "style//jHtmlArea.Editor.css",
+			
+							// Do something once the editor has finished loading
+							loaded: function() {
+								//// 'this' is equal to the jHtmlArea object
+								//alert("jHtmlArea has loaded!");
+								//this.showHTMLView(); // show the HTML view once the editor has finished loading
+							}
+						});
+					});
+					//jQuery.noConflict();
+				</script>
+				<script type="text/javascript">
+					var chart;
+					$(document).ready(function() {
+						chart = new Highcharts.Chart({
+							chart: {
+								renderTo: 'container',
+								defaultSeriesType: 'line',
+								marginRight: 130,
+								marginBottom: 25
+							},
+							title: {
+								text: 'Coins Collected',
+								x: -20 //center
+							},
+							subtitle: {
+								text: 'www.silverdoctors.com',
+								x: -20
+							},
+							xAxis: {
+								categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+									'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+							},
+							yAxis: {
+								title: {
+									text: 'Likes'
+								},
+								plotLines: [{
+									value: 0,
+									width: 1,
+									color: '#808080'
+								}]
+							},
+							tooltip: {
+								formatter: function() {
+										return '<b>'+ this.series.name +'</b><br/>'+
+										this.x +': '+ this.y +' number of likes';
+								}
+							},
+							legend: {
+								layout: 'vertical',
+								align: 'right',
+								verticalAlign: 'top',
+								x: -10,
+								y: 100,
+								borderWidth: 0
+							},
+							series: [{
+								name: '2008',
+								data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+							}, {
+								name: '2009',
+								data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+							}, {
+								name: '2010',
+								data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+							}, {
+								name: '2011',
+								data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+							}, {
+								name: '2012',
+								data: [3.9, 34.2,100, 0, 0, 0, 0, 0, 0,0, 0, 0]
+							}]
+						});
+					});
+
+		</script>
+		<script type="text/javascript" src="js/highcharts.js"></script>
+		<script type="text/javascript" src="js/modules/exporting.js"></script>
+		<script src="js/gm-js.js"></script>
+    </head>
+    
+<body>
+		<div id="trans-blocker">
+        	<div id="login-div" style="display:none;width: 500px;margin-left:-250px;height:600px;margin-top:-300px;">
+            	<div id="login-h" style="width:500px"><span>Choose contact</span> <span id="close-login"><a href="#" onclick="close('trans-blocker');" >x</a></span></div>
+                <div id="email-act" style="position:relative;width: 350px;margin: 20px 0 0 25px;">
+                    <span style="display:inline-block;background:url(images/email.png);background-position: 0 -385px;width:16px;height:24px;position:absolute;left:0;"></span>
+                    <input type="text" name="search-user" id="search-user" style="width:250px;border:1px solid #ccc;border-radius: 4px;padding-left: 20px;"/>
+                    <span style="color:#ccc;font-size:12px;">search user</span>
+                </div>
+                <div id="login-f" style="border:1px solid #ccc;overflow-y: scroll; overflow-x:hidden;width: 450px;height: 400px;margin-top: 10px;"> 
+					<div class="u-list" id="user-1">
+                    	<span><input type="checkbox" class="chk-u-l" disabled="disabled" value="a@yahoo.com"/></span> <span>George M. Mahusay</span>
+                    </div>
+                    <div class="u-list" id="user-2">
+                    	<span><input type="checkbox" class="chk-u-l" disabled="disabled" value="b@yahoo.com"/></span> <span>George M. Mahusay</span>
+                    </div>
+                    <div class="u-list" id="user-3">
+                    	<span><input type="checkbox" class="chk-u-l" disabled="disabled" value="c@yahoo.com"/></span> <span>George M. Mahusay</span>
+                    </div>
+                    <div class="u-list" id="user-4">
+                    	<span><input type="checkbox" class="chk-u-l" disabled="disabled" value="d@yahoo.com"/></span> <span>George M. Mahusay</span>
+                    </div>
+                    <div class="u-list" id="user-5">
+                    	<span><input type="checkbox" class="chk-u-l" disabled="disabled" value="e@yahoo.com"/></span> <span>George M. Mahusay</span>
+                    </div>
+                    <div class="u-list" id="user-6">
+                    	<span><input type="checkbox" class="chk-u-l" disabled="disabled" value="f@yahoo.com"/></span> <span>George M. Mahusay</span>
+                    </div>
+                </div>
+                
+                <div style="position:relative;width:450px;">
+                    <span id="u-l-cancel" style="float:right;display:inline-block;padding:4px 5px;background:#000;;color:#fff;margin-left:10px;cursor:pointer;">Cancel</span>
+                	<span id="u-l-done" style="float:right;display:inline-block;padding:4px 5px;background:#000;color:#fff;cursor:pointer;">Done</span>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    	<div id="header-wrapper">
+          <div id="xyz1">
+              <div class="relative-div" id="hwrap">
+                    <div id="social">
+                        <a class="social-btn" id="fb" href="#"></a>
+                        <a class="social-btn" id="twitter" href="#"></a>
+                        <a class="social-btn" id="google" href="#"></a>
+                        <a class="social-btn" id="rss" href="#"></a>
+                        <a class="social-btn" id="youtube" href="#"></a>
+                    </div>
+                    <div id="login-reg">
+                        <a class="logreg" id="my-profile"></a>
+                        <a class="cccc" id="gtng">
+                        	<span id="l1" class="gtng-sp"><span>&nbsp;</span></span>
+                            <span id="c1" class="gtng-sp"> <span>Hello, ( George M. Mahusay )!</span></span>
+                            <span id="r1" class="gtng-sp"><span>&nbsp;</span></span>
+                        </a>
+                    </div>
+                    <div class="clear"></div>
+              </div>
+                <div id="logo-wrapper">
+                	<div id="xyz1-1">
+                    <div class="relative-div" id="logowrap">
+                        <div id="logo"><a href="#" ><img border="0" src="images/logo.png" /></a></div>
+                        <div id="banner"><a href="#"><img src="" /></a></div>
+                        <div class="clear"></div>
+                    </div>
+                    </div>
+                </div>
+                <div id="nav-wrapper">
+                	<div id="xyz1-2">
+                    <div class="relative-div" id="navwrap">
+                        <ul>
+                            <li class="current-menu" ><a href="#">Home</a></li>
+                            <li><a href="#">SD Reader Forum</a></li>
+                            <li><a href="#">Meet the Doctors</a></li>
+                            <li><a href="#">Contact the Doc</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="cwrapper">
+    <div id="xyz2">
+    <div class="relative-div" id="content-wrapper">    
+			<div id="c-left-nh">
+            	<div class="d-article">
+            		<h2 class="title title2" style="height: 150px;">
+                    	<img src="images/no-img.png" />
+                        <span class="p-uname">George M. Mahusay</span>
+                        <span class="p-since">Member since September 28 2005 (7 years)</span>
+                     </h2>
+                    <div class="content2" style="margin-bottom:10px;">
+						<div class="b-div">
+                        	<div id="b-head">
+                            	<div id="p-n-l"></div>
+                                <div id="p-n-c">
+                                	<ul>
+                                    	<li class="p-current"><a href="#" class="user_info">User Information</a></li>
+                                        <li><a href="#" class="mailing">Mail Inbox</a></li>
+                                        <li><a href="#" class="posting-history">Posting History</a></li>
+                                        <li><a href="#" class="coins-collected">Coins Collected</a></li>
+                                    </ul>
+                                </div>
+                                <div id="p-n-r"></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div id="b-cont" style="margin-top: 20px;">
+								<div class="b-cont-det" style="margin-top: 5px;">
+                                	<div id="user_info" style="padding:10px;">
+                                    	
+                     					
+                                    	<table>
+                                        	<tr>
+                                            	<td><label for="p-email">Email Address :</label></td>
+                                                <td><input class="ui_input"  disabled="disabled" type="text" id="p-email" name="p-email" value="mahusay.george@openquarter.com" />
+                                                	<span><a href="#" id="edit_profile">change</a></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td><label for="p-pwd">Change Password :</label></td>
+                                                <td><input disabled="disabled" class="ui_input" type="password" id="p-pwd" name="p-pwd" value="" /></td>
+                                            </tr>
+                                            <tr>
+                                            	<td><label for="p-cpwd">Confirm Password :</label></td>
+                                                <td><input disabled="disabled" class="ui_input" type="password" id="p-cpwd" name="p-cpwd" value="" /></td>
+                                            </tr>
+                                            <tr>
+                                            	<td><label for="p-avatar">Upload Avatar: </label></td>
+                                                <td><input disabled="disabled" class="ui_input ui_upload" type="file" id="p-avatar" name="p-avatar" style="border:0 !important;"/></td>
+                                            </tr>
+                                            <tr>
+                                            	<td colspan="2" style="color:#666 !important;"><input disabled="disabled" class="ui_input ui_chk" type="checkbox" name="rpm" value="1" style="width:10px;height:10px;border:0 !important;"/> 
+                                                	Receive Private Messages in Email Inbox (Your email address will not be made publicy available) 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td colspan="2" style="color:#666 !important;"><input disabled="disabled" class="ui_input ui_chk" type="checkbox" name="rdmn" value="1" style="width:10px;height:10px;border:0 !important;"/> 
+                                                	Receive Doc's Monthly Newsletter
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            	<td colspan="2">
+                                                	Short Biography : <br />
+                                                    <textarea name="bio" disabled="disabled" class="ui_input" style="width:448px !important;height:150px !important;"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div><!-- user info -->
+                                    <div id="mailing" style="padding:10px;display:none">
+                                    	<ul id="mail_nav">
+                                        	<li id="ie1" class="m-current"><a href="#" class="mail-inbox">Inbox <span>(1000)</a></li>
+                                            <li><a href="#" class="mail-create">New Message</a></li>
+                                            <li><a href="#" class="mail-sent">Sent</a></li>
+                                            <li><a href="#" class="mail-draft">Drafts</a></li>
+                                        </ul>
+                                        <div id="mail-content">
+                                        	<div id="mail-inbox" style="display:none">
+                                                <div class="mail-action">
+                                                    <span class="delete-mail">Delete</span>
+                                                    <span class="reply">Reply</span>
+                                                    <span class="mark-read">Mark as read</span>
+                                                </div>
+                                                
+                                                <div id="inbox">
+                                                    <div class="mail-header">
+                                                        <div class="chk-all" id="inbox-chk-all"><input type="checkbox" name="chk-all" id="chk-all-input" /></div>
+                                                        <div class="from-email"><span>from</span></div>
+                                                        <div class="subject-email"><span>subject</span></div>
+                                                        <div class="date-email"><span>date</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends This is my message to you my friends This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                                 <div class="mail-action">
+                                                    <span class="delete-mail">Delete</span>
+                                                    <span class="reply">Reply</span>
+                                                    <span class="mark-read">Mark as read</span>
+                                                </div>
+                                            </div><!-- inbox -->
+                                            <div id="mail-create" style="display:none">
+                                            	<div id="create-to" style="margin-top: 40px;margin-bottom:5px;">
+                                                		<span style="font-size: 10px;display:inline-block;width:70px;text-align:right;margin-right:10px">TO:</span>
+                                                		<input style="width: 415px;" type="text" name="c-to" id="c-to"/>
+                                                        <span class="em-add" id="a-to"></span>
+                                                </div>
+                                                <div id="create-cc" style="margin-bottom:5px;">
+                                                		<span style="font-size: 10px;display:inline-block;width:70px;text-align:right;margin-right:10px">CC:</span>
+                                                        <input style="width: 415px;" type="text" name="c-cc" id="c-cc"/>
+                                                        <span class="em-add" id="a-cc"></span>
+                                                </div>
+                                                <div id="create-subject" style="margin-bottom:40px;">
+                                                		<span style="font-size: 10px;display:inline-block;width:70px;text-align:right;margin-right:10px">Subject:</span>
+                                                        <input style="width: 415px;" type="text" name="c-subject"/>
+                                                </div>
+												<textarea id="txtDefaultHtmlArea" style="width:610px;height:270px"></textarea>
+                                                <div class="mail-action">
+                                                    <span class="reply">Send</span>
+                                                    <span class="delete-mail">Cancel</span>
+                                                </div>
+                                            </div><!-- mail create-->
+                                            <div id="mail-sent" style="display:none">
+                                                <div class="mail-action">
+                                                    <span class="delete-mail">Delete</span>
+                                                    <span class="edit">Edit</span>
+                                                </div>
+                                            <div id="sent">
+                                                    <div class="mail-header">
+                                                        <div class="chk-all" id="inbox-chk-all"><input type="checkbox" name="chk-all" id="chk-all-input" /></div>
+                                                        <div class="from-email"><span>to</span></div>
+                                                        <div class="subject-email"><span>subject</span></div>
+                                                        <div class="date-email"><span>date</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends This is my message to you my friends This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                                 <div class="mail-action">
+                                                    <span class="delete-mail">Delete</span>
+                                                    <span class="edit">Edit</span>
+                                                 </div>
+                                           </div><!-- sent -->
+                                           <div id="mail-draft" style="display:none">
+                                                <div class="mail-action">
+                                                    <span class="delete-mail">Delete</span>
+                                                    <span class="edit">Edit</span>
+                                                </div>
+                                            <div id="draft">
+                                                    <div class="mail-header">
+                                                        <div class="chk-all" id="inbox-chk-all"><input type="checkbox" name="chk-all" id="chk-all-input" /></div>
+                                                        <div class="from-email"><span>to</span></div>
+                                                        <div class="subject-email"><span>subject</span></div>
+                                                        <div class="date-email"><span>date</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends This is my message to you my friends This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="mail-content">
+                                                        <div class="chk-all" style="border:0;"><input type="checkbox" name="chkid-1" id="chkid-1" value="1" /></div>
+                                                        <div class="from-email" style="margin:0;border:0"><span class="frm">George M. Mahusay</span></div>
+                                                        <div class="subject-email" style="margin:0;border:0"><span class="sbj">This is my message to you my friends</span></div>
+                                                        <div class="date-email" style="margin:0;border:0"><span class="dt">July 17, 2012</span></div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                                 <div class="mail-action">
+                                                    <span class="delete-mail">Delete</span>
+                                                    <span class="edit">Edit</span>
+                                                 </div>
+                                           </div><!-- draft -->
+                                        </div>
+                                    </div><!-- mailing -->
+                                    <div id="posting-history" style="display:none">
+                                        <h2> Posting History </h2>
+                                    </div><!-- posting history -->
+                                    <div  id="coins-collected" style="display:none">
+										<div id="container" style="width: 628px; height: 400px; margin: 0 auto"></div>
+                                    </div><!-- coins collected -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- s-article -->
+                <div class="article-separator"></div>
+          </div>
+          <div id="c-right" class="ddocs">          
+               	<div id="kitco-wrapper" class="c-wrap">
+                	<div class="cr-wrap">
+                        <div id="kitco-nav">
+                            <div id="kitco-silver" class="c-kitco"><a href="silver">Silver</a></div>
+                            <div id="kitco-gold"><a href="gold">Gold</a></div>
+                            <div id="kitco-usd"><a href="usd">USD</a></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="kitco-img silver c-kitco-img">
+                        	<img src="images/sample-kitco.png" />
+                            <p> silver </p>
+                        </div>
+                        <div class="kitco-img gold">
+                        	<img src="images/sample-kitco.png" />
+                            <p> gold </p>
+                        </div>
+                        <div class="kitco-img usd">
+                        	<img src="images/sample-kitco.png" />
+                            <p> usd </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cr-google-adds">
+                	<img src="#" alt="Google Ads 300x250" width="300" height="250"/>
+                </div>
+                <div class="cr-slash-bg c-wrap">
+                	<div class="cr-block-bg">
+                    	<div class="cr-block-bg-2">
+                        	<div class="cr-block-bg-3">
+                            	<div class="plus-sign"><a href="#"></a></div>
+                    			<h1> Phyzz Stack Leaderboard </h1>
+                                <div class="img-wrap">
+                                	<img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                    <img src="#" alt="img1" width="52" height="47"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cr-google-adds">
+                	<img src="#" alt="Google Ads 300x250" width="300" height="250"/>
+                </div>
+                <div class="cr-block-bg c-wrap" style="width:300px">
+                	<div class="cr-block-bg-2" style="background:#fff;width:280px">
+                    	<div class="cr-block-bg-3">
+                    		<h1>The Docs Read</h1>
+                            <div class="list-type">
+                            	<ul>
+                                	<li><a href="#">JSMineset</a></li>
+                                    <li><a href="#">Trader Dan</a></li>
+                                    <li><a href="#">TF Metals Report</a></li>
+                                    <li><a href="#">Trader Dan</a></li>
+                                    <li><a href="#">SGTreport.com</a></li>
+                                    <li><a href="#">The Market Oracle</a></li>
+                                    <li><a href="#">BrotherJohnF</a></li>
+                                    <li><a href="#">Zero Hedge</a></li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="news-letter" class="c-wrap" style="background:#a4a4a4;padding: 5px 0;">
+                	<h2 style="color:#fff;font-size:14px;font-family:Arial;text-align:center;">Sign Up for Doc's Monthly Newsletter</h2>
+                    <div style="width:260px;margin:0 auto;">
+                    <form>
+                    	<input type="text" style="width:171px;height:38px" value="Enter your email address"/>
+                        <input type="submit" style="background:url(images/submit-btn-nl.png);border: 0;width: 77px;height: 50px;text-indent: -9999px;" />
+                    </form>
+                    </div>
+                </div>
+                
+                <div class="c-wrap" style="height:88px;background:url(images/search-bg.png);background-repeat: no-repeat;padding: 5px 0;">
+                	<h2 style="color:#000;font-size:14px;font-family:Arial;margin-left:20px;">Search Doc's Archive</h2>
+                    <div style="width:260px;margin:0 auto;">
+                    <form>
+                    	<input type="text" style="width:247px;height:32px;border: 1px solid #CCC;" value="Enter your search here..."/>
+                        <input type="submit" style="background:url(images/search-btn.png);border: 0;width: 36px;height: 38px;text-indent: -9999px;position: absolute;right: 32px;" />
+                    </form>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="clear"></div>
+    </div>
+    </div>
+    </div>
+    <div id="footer-wrapper">
+    	<div id="footerwrap">
+   		<div id="xyz3">
+        	<div id="footerw" class="ct">
+            	Copyright © 2011 <a href="#"> SilverDoctors</a>. All Rights Reserved. 
+                
+                <span>Weekly Visits : 1578, 2689</span>
+            </div>
+        </div>
+        </div>
+        <div id="footer-l"></div>
+    </div>
+</body>
+</html>

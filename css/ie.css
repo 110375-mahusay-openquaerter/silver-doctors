@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+#news-letter {
+	position:relative;
+}
+#news-letter input#news-l-btn{
+	position:absolute;
+	bottom:2px;
+}
+a img{border:0;}
+
