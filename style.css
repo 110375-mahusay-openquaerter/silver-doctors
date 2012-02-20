@@ -1001,3 +1001,116 @@ a:hover{text-decoration:underline;}
 	.u-list:hover{
 		background:#ccc !important;
 	}
+	
+	#b-forum-m{
+		float:left;
+		background:url(images/main-theme.png);
+		background-repeat:no-repeat;
+		width:400px;
+		height:36px;
+	}
+	#b-topic-m{
+		float:left;
+		background:url(images/main-topcis.png);
+		background-repeat:no-repeat;
+		width:119px;
+		height:36px;
+	}
+	#b-post-m{
+		float:left;
+		background:url(images/main-post.png);
+		background-repeat:no-repeat;
+		width:121px;
+		height:36px;
+	}
+		.b-f-forum-m{
+			float:left;
+			width:390px;
+			font-weight: bold;
+			padding-top: 10px;
+		}
+		.b-f-topic-m{
+			float:left;
+			width:110px;
+			text-align: center;
+			padding-top: 15px;
+			font-weight: bold;
+		}
+		.b-f-post-m{
+			float:left;
+			width:112px;
+			text-align: center;
+			padding-top: 15px;
+			font-weight: bold;
+		}
+		
+		.fby-m {
+			display: block;
+			font-size: 10px;
+			color: #CCC;
+		}
+		#mrfc {
+			margin: 40px;
+		}
+		.bmrf {
+			font-size: 18px;
+			border-bottom: 1px solid #CCC;
+			padding-bottom: 10px;
+			display: inline-block;
+		}
+			.mrfc-author{
+				float:left;
+				width:152px;
+			}
+			.mrfc-post{
+				float:right;
+				width:462px;
+			}
+			.mrfc-box {
+				margin-top: 30px;
+			}
+			.mrfc-top{
+				width:495px;
+				height:9px;
+				background:url(images/mrfc-top.png);
+				background-repeat:no-repeat;
+			}
+			.mrfc-cont{
+				width:495px;
+				background:url(images/mrfc-center.png);
+				background-repeat:repeat-y;
+				position: relative;
+			}
+			.mrfc-bottom{
+				width:495px;
+				height:9px;
+				background:url(images/mrfc-bottom.png);
+				background-repeat:no-repeat;
+			}
+			.pppost {
+				width: 455px;
+				display: block;
+				margin: 0 10px 10px;
+			}
+			.arrw{
+				background:url(images/mrfc-c-arrw.png);
+				width:32px;
+				height:25px;
+				display:block;
+				position:absolute;
+				top:10px;
+				left:-29px;
+			}
+			.mrfc-post-date {
+				display: block;
+				border-top: 1px solid #CCC;
+				width: 443px;
+				margin: 0 10px;
+				padding: 5px 0 0;
+				color: #CCC;
+			}
+			.mrfc-author span {
+				display: block;
+				color: #CCC;
+				font-style: italic;
+			}
